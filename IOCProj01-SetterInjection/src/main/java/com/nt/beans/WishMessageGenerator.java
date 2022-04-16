@@ -6,12 +6,12 @@ public class WishMessageGenerator {
 	//HAS- A property  (supporting  compostion or Injection)
 	private  Date  date;
 	
-	public WishMessageGenerator() {
-		System.out.println("WishMessageGenerator.0- param constructor");
+	private WishMessageGenerator() {
+		System.out.println("WishMessageGenerator.0- param constructor(private)");
 	}
 	
 	//setter method supporting  Setter Injection
-	public void setDate(Date date) {
+	private void setDate1(Date date) {
 		System.out.println("WishMessageGenerator.setDate(-)");
 		this.date=date;
 	}

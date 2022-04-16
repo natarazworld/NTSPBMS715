@@ -11,7 +11,7 @@
              
              <!-- target class cfg  as spring bean -->
              <bean id="wmg"  class="com.nt.beans.WishMessageGenerator">
-                  <property name="date"  ref="dt"/>  <!-- for setter Injection -->
+                  <property name="date1"  ref="dt"/>  <!-- for setter Injection -->
              </bean>
            
            

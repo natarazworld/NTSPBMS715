@@ -8,8 +8,8 @@ public class WishMessageGenerator {
 	private  Date  date;
 	
 	 //for constructor Injection
-	public WishMessageGenerator(Date date) {
-		this.date=date;
+	public WishMessageGenerator(Date date1) {
+		this.date=date1;
 		System.out.println("WishMessageGenerator.1- param constructor::"+date);
 	}
 	

@@ -6,15 +6,15 @@ public class Test {
 	
 	
 	
-	 public Test() {
-			System.out.println("Test:: 0-param construtor");
+	private Test() {
+			System.out.println("Test:: 0-param construtor(private)");
 			}
 
 
 
 	// alt+shift +s, o
-	 public Test(int a, int b) {
-      System.out.println("Test: 2 -param constructor");
+	 private Test(int a, int b) {
+      System.out.println("Test: 2 -param constructor(private)");
 		this.a = a;
 		this.b = b;
 	}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+   <!-- DataSource cfg -->
+   <bean id="dmdsOra"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+       <property name="driverClassName"  value="oracle.jdbc.driver.OracleDriver"/>
+       <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+       <property name="username" value="system"/>
+       <property name="password" value="manager"/>
+   </bean>
+   
+   <bean id="dmdsMSQL"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+       <property name="driverClassName"  value="com.mysql.cj.jdbc.Driver"/>
+       <property name="url" value="jdbc:mysql:///ntspbms715db"/>
+       <property name="username" value="root"/>
+       <property name="password" value="root"/>
+   </bean>
+   
+   <!-- DAO class cfg -->
+   <bean id="oraCustDAO"  class="com.nt.dao.OracleCustomerDAOImpl">
+       <constructor-arg name="ds" ref="dmdsOra"/>
+   </bean>
+   <bean id="msqlCustDAO"  class="com.nt.dao.MySQLCustomerDAOImpl">
+       <constructor-arg name="ds" ref="dmdsMSQL"/>
+   </bean>
+   
+
+</beans>

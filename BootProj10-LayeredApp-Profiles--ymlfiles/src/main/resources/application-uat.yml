@@ -1,0 +1,13 @@
+#DataSource cfg for oracle
+spring: 
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: system
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    oracleucp:
+      max-pool-size: 100
+      connection-wait-timeout: 60000
+      initial-pool-size: 10
+      #Datasource type (oracle ucp)
+    type: oracle.ucp.jdbc.PoolDataSourceImpl
+    password: manager

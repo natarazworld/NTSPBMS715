@@ -1,0 +1,65 @@
+#activate profile
+spring:  
+ profiles: 
+   active: prod
+---
+spring: 
+   profiles: dev
+   
+   datasource: 
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql:///ntspbms715db
+      username: root
+      password: root
+      dbcp2: 
+        min-idle: 10
+        max-total: 100
+        max-wait-millis: 60000
+   #DataSource type (apache dbcp2)
+      type: org.apache.commons.dbcp2.BasicDataSource
+---
+spring: 
+   profiles: test
+   
+   datasource: 
+       driver-class-name: com.mysql.cj.jdbc.Driver
+       username: root
+       url: jdbc:mysql:///ntspbms715db
+       password: root
+      
+c3p0:  
+   minsize: 10
+   maxsize: 1000
+  
+---
+spring: 
+   profiles: uat
+   
+   datasource:
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      username: system
+      url: jdbc:oracle:thin:@localhost:1521:xe
+      oracleucp:
+        max-pool-size: 100
+        connection-wait-timeout: 60000
+        initial-pool-size: 10
+    #Datasource type (oracle ucp)
+      type: oracle.ucp.jdbc.PoolDataSourceImpl
+      password: manager
+
+---
+ spring: 
+   profiles: prod
+   
+   datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: system
+    hikari:
+      maximum-pool-size: '100'
+      connection-timeout: '60000'
+      minimum-idle: '10'
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    password: manager
+   
+     
+   

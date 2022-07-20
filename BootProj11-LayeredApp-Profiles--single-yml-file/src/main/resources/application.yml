@@ -1,7 +1,7 @@
 #activate profile
 spring:  
- profiles: 
-   active: prod
+  profiles: 
+    active: staging
 ---
 spring: 
    profiles: dev

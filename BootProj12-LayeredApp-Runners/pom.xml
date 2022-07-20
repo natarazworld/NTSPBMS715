@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.0</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>nit</groupId>
+	<artifactId>BootProj03-LayeredApp</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>BootProj03-LayeredApp</name>
+	<description>First spring boot App  </description>
+	<properties>
+		<java.version>17</java.version>
+		<hikaricp.version>4.0.1</hikaricp.version>
+		<junit-jupiter.version>5.8.1</junit-jupiter.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		
+		
+		<!-- https://mvnrepository.com/artifact/c3p0/c3p0 -->
+<dependency>
+    <groupId>c3p0</groupId>
+    <artifactId>c3p0</artifactId>
+    <version>0.9.1.2</version>
+</dependency>
+
+
+
+
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc -->
+ <dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-jdbc</artifactId>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+ <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-dbcp2</artifactId>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ucp -->
+<dependency>
+    <groupId>com.oracle.database.jdbc</groupId>
+    <artifactId>ucp</artifactId>
+</dependency>
+
+
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<dependencyManagement>
+
+		<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+		<dependencies>
+			
+
+			<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>5.3.13</version>
+			</dependency>
+
+
+		</dependencies>
+
+
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

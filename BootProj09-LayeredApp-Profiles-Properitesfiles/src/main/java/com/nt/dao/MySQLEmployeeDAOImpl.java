@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 import com.nt.model.Employee;
 
 @Repository("msEmpDAO")
-@Profile({"dev","test"})
+@Profile({"dev","test","default"})
 public class MySQLEmployeeDAOImpl implements IEmployeeDAO {
 	private static  final  String GET_EMPS_BY_DESGS="SELECT EMPNO,ENAME,DESG,SAL,DEPTNO FROM EMPLOYEE WHERE DESG IN(?,?,?) ORDER BY DESG";
 	@Autowired

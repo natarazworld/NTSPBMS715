@@ -23,7 +23,7 @@ public class CrudRepositoryTestRunner implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		// for  count  method 
-		try {
+	/*	try {
 			System.out.println("records count is ::"+service.fetchRecordsCount());
 		}//try
 		catch(Exception e) {
@@ -94,14 +94,44 @@ public class CrudRepositoryTestRunner implements CommandLineRunner {
 	    	  System.out.println("Actor Info::"+opt3.get());
 	      
 	      System.out.println("_____________ findById(-) returning <T> directly");
-	      System.out.println("Actor Info :"+service.showActorById(9));  
+	      System.out.println("Actor Info :"+service.showActorById(9));  */
+		
+		try {
 	      
+			/*System.out.println("____________partialupdate object operation______________");
+			System.out.println(service.updateActorMobileNo(19, 88888888L));*/
+	        
+			/*System.out.println("____________full update object operation______________");
+			Actor actor=new Actor(9,"Ranveer","Star Hero",77777999L);
+			System.out.println(service.updateActor(actor));
+			*/
+	        
+			/* System.out.println("____________Save or Update object operation____________");
+			  // Actor actor=new Actor(9,"Ranveer","super Star",7777999L);
+			    Actor actor=new Actor("Ranveer","super Star",7777999L);
+			System.out.println(service.registerOrUpdateActor(actor));*/
+			
+			/*System.out.println("_________________deleteById(-)  operation___________");
+			  System.out.println(service.removeActorById(9));*/
+			
+			/*System.out.println("_________________delete(-)  operation___________");
+			 Actor actor=new Actor(10,null,null,null);
+			  System.out.println(service.removeActor(actor));*/
+	        
+			/* System.out.println("_________________deleteById(-)  operation___________");
+			  System.out.println(service.removeActorByAId(12));*/
+			
+			/*	System.out.println("_____________deleteAll()_________ method");
+				System.out.println(service.removeAllActors());
+			*/
+			
+			System.out.println("_____________deleteAllById()_________ method");
+			  System.out.println(service.removeActorsByIds(List.of(3,4,10)));
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
 		
 
-	}
-
-}
+	}//main
+}//class

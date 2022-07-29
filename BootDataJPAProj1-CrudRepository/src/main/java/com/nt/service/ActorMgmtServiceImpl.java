@@ -1,7 +1,6 @@
 //ActorMgmtServiceImpl.java
 package com.nt.service;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -78,7 +77,7 @@ public String registerActorsGroup(List<Actor> list) {
 		  return opt;
 	}
 	
-	@Override
+	/*@Override
 	public Actor showActorById(int aid) {
 		Optional<Actor> opt=actorRepo.findById(aid);
 		if(opt.isPresent())
@@ -91,12 +90,85 @@ public String registerActorsGroup(List<Actor> list) {
 	public Actor showActorById(int aid) {
 		Optional<Actor> opt=actorRepo.findById(aid);
 		return opt.orElseThrow(()->new IllegalArgumentException("Actor not found"));
-	}
+	}*/
 	
 	@Override
 	public Actor showActorById(int aid) {
 		return  actorRepo.findById(aid).orElseThrow(()->new IllegalArgumentException("Actor not found"));
 	}
 	
+	@Override
+	public String updateActorMobileNo(int aid, long newMobileNo) {
+		   Optional<Actor> opt=actorRepo.findById(aid);
+		    if(opt.isPresent()) {
+		    	Actor  actor=opt.get();
+		    	actor.setMobileNo(newMobileNo);
+		    	actorRepo.save(actor);
+		    	return aid+" is updated with new Mobile No::"+newMobileNo;
+		    }
+		    else
+			return  aid+" Actor not found for updation";
+	}
+	
+	@Override
+	public String updateActor(Actor actor) {
+		boolean  flag=actorRepo.existsById(actor.getAid());
+		if(flag) {
+			actorRepo.save(actor);
+			return actor.getAid()+" actor  information is updated";
+		}
+		else
+			return  actor.getAid()+" Actor is not found for updation";
+	}
+	
+	
+	@Override
+	public String registerOrUpdateActor(Actor actor) {
+	     Actor  mActor=actorRepo.save(actor);
+		return mActor.getAid()+" is saved or updated successfully";
+	}
+	
+	@Override
+	public String removeActorById(int aid) {
+		Optional<Actor> opt=actorRepo.findById(aid);
+		if(opt.isPresent()) {
+		    actorRepo.deleteById(aid);
+		    return aid+ "Actor is deleted";
+		}
+		else
+		  return aid+" Actor is not found for deletion";
+	}
+	
+	
+	@Override
+	public String removeActor(Actor actor) {
+		  boolean flag=actorRepo.existsById(actor.getAid());
+		  if(flag) {
+			  actorRepo.delete(actor);
+			  return actor.getAid()+ "Actor is deleted";
+		  }
+		  else
+			  return actor.getAid()+" Actor is not found for deletion";
+	}
+	
+	@Override
+	public String removeActorByAId(int aid) {
+		actorRepo.deleteById(aid);
+		return aid+" actor is deleted";
+	}
+	
+	@Override
+	public String removeAllActors() {
+	    long count=actorRepo.count();
+	    actorRepo.deleteAll();
+		return count+" no.of records are deleted";
+	}
+	
+	
+	@Override
+	public String removeActorsByIds(List<Integer> ids) {
+	      actorRepo.deleteAllById(ids);
+		return ids.size()+" no.of records are deleted";
+	}
 	
 }//class

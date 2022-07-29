@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 @Table(name="DATA_JPA_ACTOR")
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
 //@RequiredArgsConstructor
 public class Actor {
 	@Column(name="ACTOR_ID")
@@ -37,5 +37,9 @@ public class Actor {
 	@Column(name="MOBILE_NUMBER")
 	//@NonNull
 	private  Long mobileNo;
+	
+	public  Actor() {
+		System.out.println("Actor: 0-param constructor"+this.getClass());
+	}
 
 }

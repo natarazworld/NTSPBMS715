@@ -18,8 +18,8 @@ import lombok.RequiredArgsConstructor;
 @Table(name="DATA_JPA_ACTOR")
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
-//@RequiredArgsConstructor
+//@NoArgsConstructor
+@RequiredArgsConstructor
 public class Actor {
 	@Column(name="ACTOR_ID")
 	@Id 
@@ -27,15 +27,19 @@ public class Actor {
 	private Integer aid;
 	
 	@Column(name="ACTOR_NAME",length = 20)
-	//@NonNull
+	@NonNull
 	private String  aname;
 
 	@Column(name="CATEGORY",length = 20)
-	//@NonNull
+	@NonNull
 	private  String category;
 	
 	@Column(name="MOBILE_NUMBER")
-	//@NonNull
+	@NonNull
 	private  Long mobileNo;
+	
+	public  Actor() {
+		System.out.println("Actor: 0-param constructor"+this.getClass());
+	}
 
 }

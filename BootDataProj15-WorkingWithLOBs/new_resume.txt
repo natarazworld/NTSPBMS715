@@ -1,0 +1,5 @@
+name ::: raja
+addrs  ::hyd
+age  ::: 30
+qualification:  Engg
+My hobies are  sleeping,  travelling,  wathcing TV ande tc..

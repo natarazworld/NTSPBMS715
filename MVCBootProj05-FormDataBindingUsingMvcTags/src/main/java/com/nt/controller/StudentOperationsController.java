@@ -19,7 +19,9 @@ public class StudentOperationsController {
 	}
 	
 	@GetMapping("/register")  //To launch form page
-	public String  showForm() {
+	public String  showForm(@ModelAttribute("stud") Student st) {
+		System.out.println("StudentOperationsController.showForm()");
+		System.out.println("Model class object data ::"+st);
 		//return LVN
 		return "student_register";
 	}
@@ -27,6 +29,7 @@ public class StudentOperationsController {
 	@PostMapping("/register")
 	public   String  processStudent(Map<String,Object> map,
 			                                                       @ModelAttribute("stud") Student st) {
+		System.out.println("StudentOperationsController.processStudent()");
 		System.out.println("Model class object data ::"+st);
 		// generate result
 		 String grade=null;

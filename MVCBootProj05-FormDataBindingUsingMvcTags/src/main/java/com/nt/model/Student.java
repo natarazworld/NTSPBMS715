@@ -9,6 +9,11 @@ public class Student {
 	private String  sname;
 	private  String sadd="hyd";
 	private   Float avg=0.0f;
+	
+	public Student() {
+		System.out.println("Student: 0-param constructor");
+	}
+	
 	//getters and setters
 	public Integer getSno() {
 		return sno;
